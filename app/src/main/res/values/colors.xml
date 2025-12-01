@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary Brand Colors -->
+    <color name="colorPrimary">#0D6EFD</color>
+    <color name="colorPrimaryDark">#0B5ED7</color>
+    <color name="colorPrimaryLight">#E7F1FF</color>
+
+    <!-- Background & Surfaces -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorCard">#F8F9FA</color>
+    <color name="colorBorder">#F1F3F5</color>
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#333333</color>
+    <color name="textSecondary">#555555</color>
+    <color name="textDisabled">#9CA3AF</color>
+
+    <!-- Status / Alerts -->
+    <color name="colorSuccess">#28A745</color>
+    <color name="colorWarning">#FFC107</color>
+    <color name="colorError">#DC3545</color>
+    <color name="colorInfo">#0DCAF0</color>
+
+    <!-- Icons -->
+    <color name="iconPrimary">#0D6EFD</color>
+    <color name="iconSecondary">#6C757D</color>
+
+    <!-- Bottom Navigation -->
+    <color name="bottomNavBackground">#FFFFFF</color>
+    <color name="bottomNavIconActive">#0D6EFD</color>
+    <color name="bottomNavIconInactive">#ADB5BD</color>
+
+    <!-- Dividers / Lines -->
+    <color name="divider">#E5E7EB</color>
+
+</resources>
