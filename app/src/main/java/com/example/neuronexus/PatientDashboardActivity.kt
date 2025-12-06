@@ -18,31 +18,21 @@ class PatientDashboardActivity : AppCompatActivity() {
         binding = ActivityPatientDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Setup Navigation Controller
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // 2. Link BottomNavView with NavController
-        // CHANGE: Use 'bottomNavView', not 'bottomAppBar'
         binding.bottomNavView.setupWithNavController(navController)
 
-        // 3. Handle Menu Clicks (Hybrid Approach)
-        // CHANGE: Method name is setOnItemSelectedListener
         binding.bottomNavView.setOnItemSelectedListener { menuItem ->
 
             if (menuItem.itemId == R.id.navigation_more) {
-                // SPECIAL CASE: Open the "More" Bottom Sheet
                 val bottomSheet = PatientMoreFragment()
                 bottomSheet.show(supportFragmentManager, "PatientMoreFragment")
-
-                // Return FALSE because we don't want the "More" icon to stay selected/highlighted
                 false
             } else {
-                // STANDARD CASE: Let NavigationUI handle Home, Schedule, Lab
                 NavigationUI.onNavDestinationSelected(menuItem, navController)
 
-                // Return TRUE to highlight the selected icon (Home/Schedule/Lab)
                 true
             }
         }
