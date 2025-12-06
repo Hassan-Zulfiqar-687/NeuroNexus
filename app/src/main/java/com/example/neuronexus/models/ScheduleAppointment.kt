@@ -1,0 +1,10 @@
+package com.example.neuronexus.models
+
+data class ScheduleAppointment(
+    val doctorName: String,
+    val specialty: String,
+    val date: String,
+    val time: String,
+    val doctorImageRes: Int,
+    val status: String // "UPCOMING" or "PAST"
+)

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- 1. HOME -->
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction="always" />
+
+    <!-- 2. SCHEDULE -->
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/calendar"
+        android:title="Schedule"
+        app:showAsAction="always" />
+
+    <!-- 3. PLACEHOLDER (Empty item for the FAB) -->
+    <item
+        android:id="@+id/placeholder"
+        android:title=""
+        android:enabled="false"
+        app:showAsAction="always" />
+
+    <!-- 4. LAB TEST -->
+    <item
+        android:id="@+id/navigation_lab"
+        android:icon="@drawable/research"
+        android:title="Lab Test"
+        app:showAsAction="always" />
+
+    <!-- 5. MORE / SETTINGS -->
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/dashboard"
+        android:title="More"
+        app:showAsAction="always" />
+
+</menu>

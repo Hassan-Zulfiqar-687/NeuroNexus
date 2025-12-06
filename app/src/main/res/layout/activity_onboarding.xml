@@ -16,7 +16,7 @@
         android:layout_marginEnd="6dp"
         android:text="Skip"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/primary_blue"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/bg_btn_gradient"
+        app:backgroundTint="@null"
         android:text="Next"
         android:textAllCaps="false"
         android:textSize="18sp"

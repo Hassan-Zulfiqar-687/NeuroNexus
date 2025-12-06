@@ -66,7 +66,6 @@
         android:textStyle="bold"
         android:background="@drawable/bg_btn_gradient"
         app:backgroundTint="@null"
-        app:cornerRadius="30dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_signup"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -83,17 +82,17 @@
         android:paddingBottom="10dp"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/primary_blue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@android:color/white"
-        app:cornerRadius="30dp"
+        app:cornerRadius="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="@+id/btn_login"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/btn_login"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:strokeColor="@color/colorPrimary"
+        app:strokeColor="@color/primary_blue"
         app:strokeWidth="1dp" />
 
     <TextView

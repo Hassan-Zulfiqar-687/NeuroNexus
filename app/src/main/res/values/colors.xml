@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Primary Brand Colors -->
-    <color name="colorPrimary">#0D6EFD</color>
-    <color name="colorPrimaryDark">#0B5ED7</color>
-    <color name="colorPrimaryLight">#E7F1FF</color>
-
-    <!-- Background & Surfaces -->
     <color name="colorBackground">#FFFFFF</color>
-    <color name="colorSurface">#FFFFFF</color>
     <color name="colorCard">#F8F9FA</color>
-    <color name="colorBorder">#F1F3F5</color>
 
-    <!-- Text Colors -->
+    <color name="primary_blue">#226CEB</color>
+    <color name="primary_pest">#48C5E9</color>
+    <color name="blue_button">#236DEC</color>
+    <color name="secondary_dark_blue_1">#0957DE</color>
+    <color name="secondary_dark_blue_2">#2C67CC</color>
+    <color name="secondary_dark_blue_3">#0C419D</color>
+
+    <color name="gray_1">#808E92</color>
+    <color name="gray_2">#DADADA</color>
+    <color name="yellow">#FFBB23</color>
+    <color name="green">#5FD788</color>
+    <color name="red">#FF4848</color>
+
+    <color name="text_black">#1E252D</color>
     <color name="textPrimary">#333333</color>
     <color name="textSecondary">#555555</color>
-    <color name="textDisabled">#9CA3AF</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_hint">#7B8692</color>
+    <color name="info">#3078EF</color>
+    <color name="success">#27AE60</color>
+    <color name="warning">#E2B93B</color>
+    <color name="error">#EB5757</color>
 
-    <!-- Status / Alerts -->
-    <color name="colorSuccess">#28A745</color>
-    <color name="colorWarning">#FFC107</color>
-    <color name="colorError">#DC3545</color>
-    <color name="colorInfo">#0DCAF0</color>
+    <color name="gradient_blue_start">#4E8CF7</color>
+    <color name="gradient_blue_end">#1A69F0</color>
 
-    <!-- Icons -->
-    <color name="iconPrimary">#0D6EFD</color>
-    <color name="iconSecondary">#6C757D</color>
-
-    <!-- Bottom Navigation -->
-    <color name="bottomNavBackground">#FFFFFF</color>
-    <color name="bottomNavIconActive">#0D6EFD</color>
-    <color name="bottomNavIconInactive">#ADB5BD</color>
-
-    <!-- Dividers / Lines -->
-    <color name="divider">#E5E7EB</color>
+    <color name="gradient_pest_start">#62DCFF</color>
+    <color name="gradient_pest_end">#00B5E9</color>
 
 </resources>

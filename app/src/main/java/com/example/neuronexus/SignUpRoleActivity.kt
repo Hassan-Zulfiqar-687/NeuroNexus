@@ -2,30 +2,36 @@ package com.example.neuronexus
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.neuronexus.databinding.ActivitySignUpRoleBinding
 
 class SignUpRoleActivity : AppCompatActivity() {
+
+    private var _binding: ActivitySignUpRoleBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_sign_up_role)
+        _binding = ActivitySignUpRoleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btn_doctor = findViewById<Button>(R.id.btn_doctor_role)
-        val btn_patient = findViewById<Button>(R.id.btn_patient_role)
+        binding.btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
-        btn_doctor.setOnClickListener {
+        binding.btnDoctorRole.setOnClickListener {
             val intent = Intent(this, DoctorSignUpActivity::class.java)
             startActivity(intent)
         }
 
-        btn_patient.setOnClickListener {
+        binding.btnPatientRole.setOnClickListener {
             val intent = Intent(this, PatientSignUpActivity::class.java)
             startActivity(intent)
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

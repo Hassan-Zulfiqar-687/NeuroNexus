@@ -2,32 +2,36 @@ package com.example.neuronexus
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.neuronexus.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
-    private lateinit var btn_login: Button
-    private lateinit var btn_signup: Button
+
+    private var _binding: ActivityWelcomeBinding? = null
+
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_welcome)
 
-        btn_login = findViewById<Button>(R.id.btn_login)
-        btn_signup = findViewById<Button>(R.id.btn_signup)
+        _binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btn_login.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)}
-
-        btn_signup.setOnClickListener{
-            val intent = Intent(this, SignUpRoleActivity::class.java)
             startActivity(intent)
         }
 
+        binding.btnSignup.setOnClickListener {
+            val intent = Intent(this, SignUpRoleActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

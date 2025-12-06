@@ -1,417 +1,538 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:fillViewport="true"
-    android:scrollbars="none"
-    android:background="@color/colorBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".DoctorSignUpActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_black" />
 
-        <!-- 1. Header Title -->
+    <LinearLayout
+        android:id="@+id/layoutFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
         <TextView
-            android:id="@+id/textTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Doctor Registration"
-            android:textColor="@color/textPrimary"
-            android:textSize="28sp"
-            android:textStyle="bold"
             android:fontFamily="@font/poppins"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="Already have an account? "
+            android:textColor="#808080" />
 
         <TextView
-            android:id="@+id/textSubtitle"
+            android:id="@+id/textGoToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Let's get your profile set up."
-            android:textColor="#666666"
             android:fontFamily="@font/poppins"
-            app:layout_constraintTop_toBottomOf="@+id/textTitle"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="SIGN IN"
+            android:textColor="#3F80FF"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-        <!-- 2. Profile Image Upload Section -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/layoutFooter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutProfileImage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/textSubtitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/doctor"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#E0E0E0"
-                app:layout_constraintTop_toTopOf="parent"
+            <LinearLayout
+                android:id="@+id/headerLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Camera Icon Overlay -->
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@color/colorBackground"
-                android:src="@android:drawable/ic_menu_camera"
-                android:padding="6dp"
-                android:elevation="4dp"
-                app:tint="#5E5CDB"
-                app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
-                app:layout_constraintEnd_toEndOf="@+id/imgProfile" />
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/logo_icon" />
 
-            <!-- Note: create a bg_circle_white drawable or just use white background -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="NeuroNexus"
+                    android:textColor="@color/text_black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="Doctor Sign up"
+                android:textColor="@color/text_black"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headerLogo" />
+
+            <TextView
+                android:id="@+id/textSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Please fill in your details to register."
+                android:textColor="#808080"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutProfileImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSubtitle">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/doctor"
+                    app:civ_border_color="#E0E0E0"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/colorBackground"
+                    android:elevation="4dp"
+                    android:padding="6dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgProfile"
+                    app:layout_constraintEnd_toEndOf="@+id/imgProfile"
+                    app:tint="#3F80FF" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textUploadHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Upload Photo"
+                android:textColor="#3F80FF"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/layoutProfileImage"
+                app:layout_constraintStart_toStartOf="@+id/layoutProfileImage"
+                app:layout_constraintTop_toBottomOf="@+id/layoutProfileImage" />
+
+
+            <TextView
+                android:id="@+id/labelName"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="32dp"
+                android:text="Full Name *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textUploadHint" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputName"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelName"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    style="@style/LoginEditText"
+                    android:hint="type your fullname"
+                    android:inputType="textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelEmail"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Email *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputName" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputEmail"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelEmail"
+                app:startIconDrawable="@drawable/email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    style="@style/LoginEditText"
+                    android:hint="type your email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelContact"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Contact Number *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputContact"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelContact"
+                app:startIconDrawable="@drawable/ic_call">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContact"
+                    style="@style/LoginEditText"
+                    android:hint="type contact number"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelPass"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Password *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputContact" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputPass"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:endIconMode="password_toggle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelPass"
+                app:startIconDrawable="@drawable/lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    style="@style/LoginEditText"
+                    android:hint="type your password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelConfirmPass"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Confirm Password *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputPass" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputConfirmPass"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:endIconMode="password_toggle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelConfirmPass"
+                app:startIconDrawable="@drawable/lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmPassword"
+                    style="@style/LoginEditText"
+                    android:hint="re-type your password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/headerProfessional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Professional Details"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputConfirmPass" />
+
+            <TextView
+                android:id="@+id/labelLicense"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="PMDC / License Number *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerProfessional" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLicense"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelLicense"
+                app:startIconDrawable="@drawable/ic_license">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLicense"
+                    style="@style/LoginEditText"
+                    android:hint="enter license number"
+                    android:inputType="textCapCharacters" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelLicenseUpload"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Upload License Copy *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputLicense" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLicenseUpload"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelLicenseUpload"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:id="@+id/licenseImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F8F9FA"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgLicensePreview"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_license"
+                        app:tint="#3F80FF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="Tap to upload image"
+                        android:textColor="#808080" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/labelSpec"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Specialization *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardLicenseUpload" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputSpec"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelSpec"
+                app:startIconDrawable="@drawable/ic_badge">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSpec"
+                    style="@style/LoginEditText"
+                    android:hint="e.g. Cardiologist"
+                    android:inputType="textCapWords" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelQual"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Qualifications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputSpec" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputQual"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelQual"
+                app:startIconDrawable="@drawable/ic_badge">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etQual"
+                    style="@style/LoginEditText"
+                    android:hint="e.g. MBBS, FCPS"
+                    android:inputType="textCapCharacters" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/headerClinic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Clinic Details"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputQual" />
+
+            <TextView
+                android:id="@+id/labelAddress"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Clinic Address *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerClinic" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputAddress"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelAddress"
+                app:startIconDrawable="@drawable/ic_location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddress"
+                    style="@style/LoginEditText"
+                    android:hint="enter full clinic address"
+                    android:inputType="textMultiLine"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelFee"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Consultation Fee (PKR) *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputAddress" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputFee"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelFee"
+                app:startIconDrawable="@drawable/coin">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFee"
+                    style="@style/LoginEditText"
+                    android:hint="e.g. 2000"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelSchedule"
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Available Schedule *"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputFee" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputSchedule"
+                style="@style/LoginInputLayout"
+                android:layout_marginTop="8dp"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelSchedule"
+                app:startIconDrawable="@drawable/calendar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSchedule"
+                    style="@style/LoginEditText"
+                    android:gravity="top|start"
+                    android:hint="e.g. Mon: 5pm-9pm\nSat: 10am-2pm"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:lines="3"
+                    android:minLines="2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegisterDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_btn_gradient"
+                android:fontFamily="@font/poppins"
+                android:text="SIGN UP"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputSchedule" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/textUploadHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Upload Profile Picture"
-            android:textSize="12sp"
-            android:textColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/layoutProfileImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-
-        <!-- ================= SECTION: PERSONAL INFO ================= -->
-        <TextView
-            android:id="@+id/headerPersonal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Personal Information"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/textUploadHint"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <!-- Name -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Full Name"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/headerPersonal">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPersonName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Email & Contact Row (Using ConstraintLayout features) -->
-        <!-- Email -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputEmail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Email Address"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputName">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Contact -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputContact"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Contact Number"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputPass"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Password"
-            app:endIconMode="password_toggle"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputContact">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Confirm Password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputConfirmPass"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Confirm Password"
-            app:endIconMode="password_toggle"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputPass">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- ================= SECTION: PROFESSIONAL INFO ================= -->
-        <TextView
-            android:id="@+id/headerProfessional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Professional Details"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/inputConfirmPass"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <!-- License Number -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLicense"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="PMDC / License Number"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/headerProfessional">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textCapCharacters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Specialization -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputSpec"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Specialization (e.g. Cardiologist)"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputLicense">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textCapWords"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Qualifications -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputQual"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Qualifications (e.g. MBBS, FCPS)"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputSpec">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textCapCharacters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- ================= SECTION: CLINIC INFO ================= -->
-        <TextView
-            android:id="@+id/headerClinic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Clinic &amp; Schedule"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/inputQual"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <!-- Clinic Address -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputAddress"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Clinic Address"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/headerClinic">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textMultiLine"
-                android:minLines="2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Fee -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputFee"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Consultation Fee (PKR)"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputAddress">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Schedule (Simplified for Sign Up) -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputSchedule"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Available Schedule (e.g. Mon-Fri, 5pm-9pm)"
-            app:endIconDrawable="@android:drawable/ic_menu_my_calendar"
-            app:endIconMode="custom"
-            app:boxCornerRadiusTopStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxStrokeColor="#5E5CDB"
-            app:layout_constraintTop_toBottomOf="@+id/inputFee">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Register Button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegisterDoctor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="24dp"
-            android:text="Register"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null"
-            android:background="@drawable/bg_btn_gradient"
-            app:cornerRadius="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/inputSchedule"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/btnRegisterDoctor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <TextView
-                android:text="Already have an account? "
-                android:textColor="#666666"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/textGoToLogin"
-                android:text="Login"
-                android:textStyle="bold"
-                android:textColor="#5E5CDB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
