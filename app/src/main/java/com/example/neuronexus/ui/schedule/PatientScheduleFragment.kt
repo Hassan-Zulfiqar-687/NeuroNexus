@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.neuronexus.R
-import com.example.neuronexus.adapters.ScheduleAppointmentAdapter
+import com.example.neuronexus.adapters.PatientAppointmentAdapter
 import com.example.neuronexus.databinding.FragmentPatientScheduleBinding
 
 class PatientScheduleFragment : Fragment() {
@@ -19,7 +19,7 @@ class PatientScheduleFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var scheduleViewModel: PatientScheduleViewModel
-    private lateinit var adapter: ScheduleAppointmentAdapter
+    private lateinit var adapter: PatientAppointmentAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +33,7 @@ class PatientScheduleFragment : Fragment() {
 
         val initialList = scheduleViewModel.getUpcomingList()
 
-        adapter = ScheduleAppointmentAdapter(initialList)
+        adapter = PatientAppointmentAdapter(initialList)
         binding.rvSchedule.layoutManager = LinearLayoutManager(context)
         binding.rvSchedule.adapter = adapter
 

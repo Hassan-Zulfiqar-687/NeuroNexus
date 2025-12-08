@@ -1,6 +1,6 @@
 package com.example.neuronexus.models
 
-data class ScheduleAppointment(
+data class PatientAppointmentItem(
     val doctorName: String,
     val specialty: String,
     val date: String,

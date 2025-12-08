@@ -1,10 +1,13 @@
 package com.example.neuronexus.ui.more
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.neuronexus.LoginActivity
 import com.example.neuronexus.R
 import com.example.neuronexus.databinding.FragmentPatientMoreBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -46,15 +49,25 @@ class PatientMoreFragment : BottomSheetDialogFragment() {
         }
 
         binding.btnLogout.setOnClickListener {
-            Toast.makeText(context, "Logging Out...", Toast.LENGTH_SHORT).show()
-            // Add your logout logic here (e.g., clear data, go to login screen)
-            dismiss()
+            performLogout()
         }
     }
 
-    // --- ESSENTIAL FOR ROUNDED CORNERS ---
-    // This applies the transparent background theme we added earlier.
-    // If you skip this, the sheet might have white corners behind your blue rounded drawable.
+    private fun performLogout() {
+        // 1. Clear Local Data (CRITICAL)
+        // You still must do this, otherwise the app "forgets" the UI
+        // but remembers the data in the background.
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.clear()
+        editor.apply()
+
+        val intent = Intent(requireActivity(), LoginActivity::class.java)
+        startActivity(intent)
+
+        requireActivity().finishAffinity()
+    }
+
     override fun getTheme(): Int {
         return R.style.BottomSheetDialogTheme
     }

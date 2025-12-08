@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.neuronexus.R
 import com.example.neuronexus.databinding.ItemPatientScheduleAppointmentBinding
-import com.example.neuronexus.models.ScheduleAppointment
+import com.example.neuronexus.models.PatientAppointmentItem
 
-class ScheduleAppointmentAdapter(private var appointmentList: List<ScheduleAppointment>) :
-    RecyclerView.Adapter<ScheduleAppointmentAdapter.ScheduleViewHolder>() {
+class PatientAppointmentAdapter(private var appointmentList: List<PatientAppointmentItem>) :
+    RecyclerView.Adapter<PatientAppointmentAdapter.ScheduleViewHolder>() {
 
     class ScheduleViewHolder(val binding: ItemPatientScheduleAppointmentBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -50,7 +49,7 @@ class ScheduleAppointmentAdapter(private var appointmentList: List<ScheduleAppoi
 
     override fun getItemCount() = appointmentList.size
 
-    fun updateList(newList: List<ScheduleAppointment>) {
+    fun updateList(newList: List<PatientAppointmentItem>) {
         appointmentList = newList
         notifyDataSetChanged()
     }

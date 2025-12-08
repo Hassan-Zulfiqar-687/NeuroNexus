@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doctor_mobile_navigation"
+    app:startDestination="@+id/navigation_doctor_home">
+
+    <fragment
+        android:id="@+id/navigation_doctor_home"
+        android:name="com.example.neuronexus.ui.doctor.home.DoctorHomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_doctor_home" />
+
+    <fragment
+        android:id="@+id/navigation_doctor_search"
+        android:name="com.example.neuronexus.ui.doctor.search.DoctorSearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_doctor_search" />
+
+    <fragment
+        android:id="@+id/navigation_doctor_schedule"
+        android:name="com.example.neuronexus.ui.doctor.schedule.DoctorScheduleFragment"
+        android:label="Schedule"
+        tools:layout="@layout/fragment_doctor_schedule" />
+
+</navigation>

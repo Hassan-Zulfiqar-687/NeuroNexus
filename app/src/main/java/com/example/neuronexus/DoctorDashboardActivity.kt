@@ -1,20 +1,38 @@
 package com.example.neuronexus
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
+import com.example.neuronexus.databinding.ActivityDoctorDashboardBinding
+import com.example.neuronexus.ui.doctor.more.DoctorMoreFragment
 
 class DoctorDashboardActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDoctorDashboardBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_doctor_dashboard)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityDoctorDashboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment_doctor) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        binding.doctorBottomNav.setupWithNavController(navController)
+
+        binding.doctorBottomNav.setOnItemSelectedListener { menuItem ->
+
+            if (menuItem.itemId == R.id.navigation_doctor_more) {
+                val bottomSheet = DoctorMoreFragment()
+                bottomSheet.show(supportFragmentManager, "DoctorMoreFragment")
+                false
+            } else {
+                NavigationUI.onNavDestinationSelected(menuItem, navController)
+                true
+            }
         }
     }
 }
