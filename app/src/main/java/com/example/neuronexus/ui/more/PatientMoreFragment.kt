@@ -29,13 +29,25 @@ class PatientMoreFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnProfile.setOnClickListener {
-            Toast.makeText(context, "Opening Profile...", Toast.LENGTH_SHORT).show()
+            // 1. Close the Bottom Sheet (The popup)
             dismiss()
+
+            // 2. Find the Main Activity's Navigation Controller
+            // We are looking for the 'nav_host_fragment' that lives in PatientDashboardActivity
+            val navController = androidx.navigation.Navigation.findNavController(
+                requireActivity(),
+                R.id.nav_host_fragment
+            )
+
+            // 3. Navigate to the Profile Fragment
+            navController.navigate(R.id.navigation_profile)
         }
 
-        binding.btnAppointment.setOnClickListener {
-            Toast.makeText(context, "Opening Appointments...", Toast.LENGTH_SHORT).show()
+        binding.btnHistory.setOnClickListener {
             dismiss()
+
+            androidx.navigation.Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+                .navigate(R.id.navigation_patient_history)
         }
 
         binding.btnSettings.setOnClickListener {

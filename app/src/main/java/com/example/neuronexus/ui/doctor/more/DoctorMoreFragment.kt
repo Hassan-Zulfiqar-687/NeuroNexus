@@ -1,60 +1,82 @@
 package com.example.neuronexus.ui.doctor.more
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.example.neuronexus.LoginActivity
 import com.example.neuronexus.R
+import com.example.neuronexus.databinding.FragmentDoctorMoreBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class DoctorMoreFragment : BottomSheetDialogFragment() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DoctorMoreFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class DoctorMoreFragment : com.google.android.material.bottomsheet.BottomSheetDialogFragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentDoctorMoreBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doctor_more, container, false)
+    ): View {
+        _binding = FragmentDoctorMoreBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DoctorMoreFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DoctorMoreFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.btnProfile.setOnClickListener {
+            // 1. Close the Bottom Sheet
+            dismiss()
+
+            // 2. Find the *Doctor* Activity's Navigation Controller
+            // Note: We use 'nav_host_fragment_doctor' here!
+            androidx.navigation.Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_doctor)
+                .navigate(R.id.navigation_doctor_profile)
+        }
+
+        binding.btnHistory.setOnClickListener {
+            Toast.makeText(context, "Opening History...", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
+        binding.btnSettings.setOnClickListener {
+            Toast.makeText(context, "Opening Settings...", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
+        binding.btnHelp.setOnClickListener {
+            Toast.makeText(context, "Opening Help...", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
+        binding.btnLogout.setOnClickListener {
+            performLogout()
+        }
+    }
+
+    private fun performLogout() {
+
+        val sharedPref = requireActivity().getSharedPreferences("UserSession", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.clear()
+        editor.apply()
+
+        val intent = Intent(requireActivity(), LoginActivity::class.java)
+        startActivity(intent)
+
+        requireActivity().finishAffinity()
+    }
+
+    override fun getTheme(): Int {
+        return R.style.BottomSheetDialogTheme
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

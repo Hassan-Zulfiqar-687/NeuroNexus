@@ -23,4 +23,22 @@
         android:label="Lab Test"
         tools:layout="@layout/fragment_patient_lab_test" />
 
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.neuronexus.ui.profile.PatientProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_patient_profile" />
+
+    <fragment
+        android:id="@+id/navigation_edit_profile"
+        android:name="com.example.neuronexus.ui.profile.PatientEditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_patient_edit_profile" />
+
+    <fragment
+        android:id="@+id/navigation_patient_history"
+        android:name="com.example.neuronexus.ui.history.PatientHistoryFragment"
+        android:label="My History"
+        tools:layout="@layout/fragment_patient_history" />
+
 </navigation>

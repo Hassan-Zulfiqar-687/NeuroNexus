@@ -25,13 +25,13 @@ class DoctorAppointmentAdapter(private val appointmentList: List<DoctorAppointme
         val appointment = appointmentList[position]
 
         holder.binding.tvPatientName.text = appointment.patientName
+        holder.binding.tvTime.text = appointment.time
 
-        holder.binding.imgPatient.setImageResource(appointment.imageResId)
-
-        holder.binding.btnAction.text = "Personal Visit - ${appointment.time}"
+        holder.binding.tvDayOfWeek.text = appointment.dayOfWeek
+        holder.binding.tvDayOfMonth.text = appointment.dayOfMonth
 
         holder.itemView.setOnClickListener {
-            // logic to open patient details later
+            // Open patient details
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.neuronexus
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -22,6 +23,23 @@ class DoctorDashboardActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.doctorBottomNav.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+            when (destination.id) {
+                R.id.navigation_doctor_home,
+                R.id.navigation_doctor_search,
+                R.id.navigation_doctor_schedule -> {
+
+                    binding.doctorBottomNav.visibility = View.VISIBLE
+                }
+                else -> {
+                    // Hide the Bottom Bar (Profile, Edit Profile, etc.)
+
+                    binding.doctorBottomNav.visibility = View.GONE
+                }
+            }
+        }
 
         binding.doctorBottomNav.setOnItemSelectedListener { menuItem ->
 

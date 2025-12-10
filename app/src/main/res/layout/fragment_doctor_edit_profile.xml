@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:paddingHorizontal="20dp">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/arrow_back"
+        app:tint="@color/text_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Edit Profile"
+        android:textColor="@color/text_black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/doctor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnChangePhoto"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/colorBackground"
+                    android:padding="6dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:tint="#3F80FF" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:text="Full Name" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    style="@style/LoginEditText"
+                    android:text="Dr. Ahmad" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    style="@style/LoginEditText"
+                    android:alpha="0.6"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="doctor@gmail.com" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Phone" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/ic_call">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    style="@style/LoginEditText"
+                    android:inputType="phone"
+                    android:text="0334-1245367" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Clinic Address" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/ic_location">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAddress"
+                    style="@style/LoginEditText"
+                    android:text="ABC, 124" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Qualification" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etQualification"
+                    style="@style/LoginEditText"
+                    android:text="MBBS, FCPS" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Consultation Fee (Rs)" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/coin">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFee"
+                    style="@style/LoginEditText"
+                    android:inputType="number"
+                    android:text="3500" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Availability Schedule" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/calendar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSchedule"
+                    style="@style/LoginEditText"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
+                    android:minLines="2"
+                    android:text="Mon-Wed: 5pm-9pm\nSat-Sun: 6pm-8pm" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="PMDC License No" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:startIconDrawable="@drawable/ic_license">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLicense"
+                    style="@style/LoginEditText"
+                    android:alpha="0.6"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="1234567" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/LoginLabelText"
+                android:layout_marginTop="16dp"
+                android:text="Password" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/LoginInputLayout"
+                app:endIconMode="password_toggle"
+                app:startIconDrawable="@drawable/lock">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    style="@style/LoginEditText"
+                    android:inputType="textPassword"
+                    android:text="1234567" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/primary_blue"
+        android:fontFamily="@font/poppins"
+        android:text="SAVE CHANGES"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

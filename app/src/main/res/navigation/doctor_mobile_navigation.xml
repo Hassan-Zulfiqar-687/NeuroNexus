@@ -23,4 +23,22 @@
         android:label="Schedule"
         tools:layout="@layout/fragment_doctor_schedule" />
 
+    <fragment
+        android:id="@+id/navigation_doctor_profile"
+        android:name="com.example.neuronexus.ui.doctor.profile.DoctorProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_doctor_profile" />
+
+    <fragment
+        android:id="@+id/navigation_doctor_edit_profile"
+        android:name="com.example.neuronexus.ui.doctor.profile.DoctorEditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_doctor_edit_profile" />
+
+    <fragment
+        android:id="@+id/navigation_doctor_history"
+        android:name="com.example.neuronexus.ui.doctor.history.DoctorHistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_doctor_history" />
+
 </navigation>

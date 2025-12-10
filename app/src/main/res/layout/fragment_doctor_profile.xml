@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <View
+        android:id="@+id/headerBg"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@drawable/bg_header_rounded_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_white_rounded"
+        android:backgroundTint="#20FFFFFF"
+        android:padding="10dp"
+        android:src="@drawable/arrow_back"
+        app:tint="@color/text_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="My Profile"
+        android:textColor="@color/text_white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <ImageView
+        android:id="@+id/btnEditProfile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_white_rounded"
+        android:backgroundTint="#20FFFFFF"
+        android:padding="10dp"
+        android:src="@drawable/ic_edit"
+        app:tint="@color/text_white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/doctor"
+        app:civ_border_color="@color/text_white"
+        app:civ_border_width="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
+        android:text="Dr. Demo User1"
+        android:textColor="@color/text_white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgProfile"
+        app:layout_constraintStart_toStartOf="@+id/imgProfile"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+
+    <TextView
+        android:id="@+id/tvSpecialization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Cardiologist"
+        android:textColor="#E0E0E0"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/text_white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSpecialization">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:text="Email Address" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/email"
+                    android:text="doctor@gmail.com" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="Phone Number" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/ic_call"
+                    android:text="0334-1245367" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="Clinic Address" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/ic_location"
+                    android:text="ABC, 124" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="Qualification" />
+
+                <TextView
+                    android:id="@+id/tvQualification"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/ic_user"
+                    android:text="MBBS, FCPS" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="Consultation Fee" />
+
+                <TextView
+                    android:id="@+id/tvFee"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/coin"
+                    android:text="Rs. 3500" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="PMDC License No" />
+
+                <TextView
+                    android:id="@+id/tvLicense"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/ic_license"
+                    android:text="1234567" />
+
+                <View style="@style/DividerStyle" />
+
+                <TextView
+                    style="@style/ProfileLabelStyle"
+                    android:layout_marginTop="16dp"
+                    android:text="Availability Schedule" />
+
+                <TextView
+                    android:id="@+id/tvSchedule"
+                    style="@style/ProfileValueStyle"
+                    android:drawableStart="@drawable/calendar"
+                    android:maxLines="5"
+                    android:singleLine="false"
+                    android:text="Mon-Wed: 5pm-9pm\nSat-Sun: 6pm-8pm" />
+
+            </LinearLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
